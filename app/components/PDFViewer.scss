@@ -1,0 +1,34 @@
+.wraper {
+  margin-left: 384px;
+  .titleBar {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 54px;
+    display: flex;
+    align-items: center;
+    color: #2d1f3f;
+    margin-left: 84px;
+    margin-right: 84px;
+    margin-top: 68px;
+    .title {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      width: calc(100% - 180px);
+    }
+    img {
+      height: 36px;
+      margin-right: 32px;
+    }
+  }
+  .wraperIn {
+    .viewer {
+      position: absolute;
+      left: 468px;
+      right: 84px;
+      top: 150px;
+      bottom: 80px;
+      overflow-y: auto;
+    }
+  }
+}

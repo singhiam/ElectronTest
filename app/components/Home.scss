@@ -1,0 +1,14 @@
+.wrapper {
+  .sideBar {
+    flex: 1;
+    height: 100vh;
+    background: #070d59;
+  }
+  .mainContainer {
+    flex: 3;
+    background: #fff;
+  }
+}
+.container div {
+  color: red;
+}
