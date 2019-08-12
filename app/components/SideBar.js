@@ -31,7 +31,7 @@ export default class SideBar extends Component<Props> {
           'openFile', 'openDirectory',
         ],
         filters: [
-          { name: 'PDF', extensions: ['pdf'] },
+          { name: 'PDF', extensions: ['*'] },
         ],
       };
       dialog.showOpenDialog(null, options, (filePaths) => {
