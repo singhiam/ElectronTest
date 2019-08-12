@@ -1,24 +1,30 @@
 // @flow
 import React, { Component } from 'react';
-import styles from './PDFViewer.scss';
-import DocumentIcon from "./Assets/imgs/DocumentIcon.png";
 import {
   Document,
-  Page
+  Page,
+  setOptions
 } from 'react-pdf';
 
 
+import styles from './PDFViewer.scss';
+import DocumentIcon from "./Assets/imgs/DocumentIcon.png";
+
+// pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+
 type Props = {
-  uploadFile: () => void,
   currentFile: {}
 };
 
 export default class PDFViewer extends Component < Props > {
   props: Props;
+
   state = {
     numPages: null,
     pageNumber: 1,
   }
+
   onDocumentLoadSuccess = ({numPages}) => {
     this.setState({
       numPages
@@ -40,7 +46,7 @@ export default class PDFViewer extends Component < Props > {
                 (currentFile.name !== undefined) ?
                 <div className={styles.wraperIn}>
                     <div className={styles.titleBar}>
-                        <img src={DocumentIcon} />
+                        <img alt="Doc Icon" src={DocumentIcon} />
                         <div className={styles.title}>{currentFile.name}</div>
                     </div>
                     <div className={styles.viewer}>

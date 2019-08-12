@@ -19,6 +19,7 @@ type Props = {
 
 export default class SideBar extends Component<Props> {
   props: Props;
+
   state = {
     selectedIndex: NaN
   } 
@@ -45,10 +46,12 @@ export default class SideBar extends Component<Props> {
         this.props.props.uploadFile(fileObj);
       });
   }
+
   openFileHandler = (item, index) => {
     this.setState({selectedIndex: index});
     this.props.props.openFile(item);
   }
+
   render() {
     const {
         uploadFile,
@@ -69,23 +72,15 @@ export default class SideBar extends Component<Props> {
                 <ul className={styles.fileList}>
                     {
                         sideBar.map((item, i) => (
-                            < li onClick = {
-                              this.openFileHandler.bind(this, item, i)
-                            }
-                            key = {
-                              i
-                            }
-                            className = {
-                              `d-flex ${styles.fileItem} ${selectedIndex === i ? styles.fileActive : ''}`
-                            } >
-
-                                <figure >
-                                    <img src={DocumentIcon}/>
-                                </figure>
-                                <div className={styles.itemName}>
-                                    <div className={styles.flieTitle}>{item.name}</div>
-                                    <small>Nam vel porta velit</small>
-                                </div>
+                            <li onClick = {this.openFileHandler.bind(this, item, i)} key = {i}
+                              className = {`d-flex ${styles.fileItem} ${selectedIndex === i ? styles.fileActive : ''}`}>
+                              <figure >
+                                <img src={DocumentIcon}/>
+                              </figure>
+                              <div className={styles.itemName}>
+                                  <div className={styles.flieTitle}>{item.name}</div>
+                                  <small>Nam vel porta velit</small>
+                              </div>
                             </li>
                         ))
                     }
